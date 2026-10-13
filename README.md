@@ -40,10 +40,15 @@ python latih.py
 On CPU it takes roughly 50 minutes. Loss curves observed:
 
 ```
-step     0  train 4.1080  val 4.1078
-step   100  train 2.0775  val 2.0956
-step   200  train 1.6022  val 1.6264
-step   300  train 0.8505  val 0.8576
+step     0  train 4.1091  val 4.1082
+step   250  train 1.2321  val 1.2448
+step   500  train 0.2424  val 0.2465
+step   750  train 0.1457  val 0.1470
+step  1000  train 0.1219  val 0.1239
+step  1500  train 0.1035  val 0.1038
+step  2000  train 0.0969  val 0.0988
+step  2500  train 0.0968  val 0.0983
+step  3000  train 0.0943  val 0.0958
 ```
 
 ## Generate
@@ -58,15 +63,18 @@ python pakai.py --interaktif
 
 Flags: `--panjang` (tokens), `--suhu` (default 0.8), `--topk` (default 40), `--ckpt`.
 
-Sample after 300 steps:
+Sample after 3000 steps:
 
 ```
-Selamat pagi pendengar setia, jatan juladi penden yar yang ananak demban dipenger.
-z SHai ki sai di -ma jem. ai da sena segalu segari sengar. Kita sejeni k kitalan
-betukukuesttn ya, ianga sobempsongensik.
+Selamat pagi pendengar setia, ini Sore Santai di KLCBS FM bersama Ayu. Gimana
+kabarnya hari ini? Semoga semua sehat ya. Sesuai judul segmen kita hari ini,
+kita ngobrolin peralatan siaran yang dibutuhkan. Banyak yang salah paham soal
+peralatan siaran yang dibutuhkan, padahal sederhana kok. Kita jeda sejenak untuk
+pesan dari sponsor. Lagu berikutnya, saya pilih lagu ini karena cocok sama
+suasana sekarang.
 ```
 
-Garbled but it has learned the shape of radio language — "Selamat pagi pendengar setia" and "Lagu berikutnya" come out correctly.
+Coherent at this point. It stays on topic across several sentences and keeps the radio register. The 58-character vocab means it cannot spell anything outside the corpus, which shows up as the occasional invented word.
 
 ## Architecture
 
